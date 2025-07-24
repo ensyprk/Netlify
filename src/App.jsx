@@ -1,24 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Kamp from './pages/Kamp'
-import Antika from './pages/Antika'
-import Hakkimizda from './pages/Hakkimizda'
-import Iletisim from './pages/Iletisim'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import ProductsPage from './pages/ProductsPage';
+import AquaMarinePage from './pages/categories/AquaMarinePage';
+import KnivesPage from './pages/categories/KnivesPage';
 
 function App() {
     return (
         <Router>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/kamp" element={<Kamp />} />
-                <Route path="/antika" element={<Antika />} />
-                <Route path="/hakkimizda" element={<Hakkimizda />} />
-                <Route path="/iletisim" element={<Iletisim />} />
-            </Routes>
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/hakkimizda" element={<AboutPage />} />
+                    <Route path="/iletisim" element={<ContactPage />} />
+                    <Route path="/urunler" element={<ProductsPage />} />
+                    <Route path="/urunler/aqua-marine" element={<AquaMarinePage />} />
+                    <Route path="/urunler/bicaklar" element={<KnivesPage />} />
+                </Routes>
+            </Layout>
         </Router>
-    )
+    );
 }
 
-export default App
+export default App;
