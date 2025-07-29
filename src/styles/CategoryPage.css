@@ -11,11 +11,29 @@
     font-size: 2.2rem;
 }
 
+/* --- DEĞİŞİKLİK BURADA --- */
 .image-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+    /* Varsayılan olarak (mobil) 2 sütun göster */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; /* Boşluğu biraz azalttık */
 }
+
+/* Tablet boyutunda (768px ve üzeri) 3 sütun göster */
+@media (min-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Masaüstü boyutunda (1024px ve üzeri) 4 sütun göster */
+@media (min-width: 1024px) {
+    .image-gallery {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}
+
 
 .image-item {
     background-color: white;
@@ -23,6 +41,7 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için eklendi */
 }
 
 .image-item:hover {
@@ -40,12 +59,4 @@
     text-align: center;
     color: #333;
     margin: 0;
-}
-
-.price {
-    color: #1a237e;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    display: block;
 }
